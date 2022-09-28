@@ -83,3 +83,12 @@ DEPRECATION WARNING: `#timestamps` was called without specifying an option for `
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.1ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Chicken Run"], ["rating", "G"], ["release_date", "2000-06-21 00:00:00.000000"], ["created_at", "2022-09-28 14:37:12.945178"], ["updated_at", "2022-09-28 14:37:12.945178"]]
   [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-28 10:37:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 234ms (Views: 232.4ms | ActiveRecord: 0.3ms)
