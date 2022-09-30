@@ -7,7 +7,22 @@ class MoviesController < ApplicationController
     end
   
     def index
-      @movies = Movie.all
+      # If no rating present in the params, set @ratings_to_show with all
+      # ratings available from the movies records in the database
+
+      # If ratings present in the params, set @ratings_to_show with the
+      # ratings present in the parameters only
+      
+      @all_ratings = Movie.all_ratings
+      
+      if params[:ratings].present?
+        @ratings_to_show = params[:ratings].keys
+      else
+        @ratings_to_show = Movie.all_ratings
+      end
+
+      @movies = Movie.with_ratings(@ratings_to_show)
+
     end
   
     def new
