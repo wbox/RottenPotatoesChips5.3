@@ -3,6 +3,7 @@
 
 <%= form_tag movies_path, method: :get, id: 'ratings_form' do %>
   Include:
+  <% @ratings_to_show = @all_ratings %>
   <% @all_ratings.each do |rating| %>
     <div class="form-check  form-check-inline">
       <%= label_tag "ratings[#{rating}]", rating, class: 'form-check-label' %>
