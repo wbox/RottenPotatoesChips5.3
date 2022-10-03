@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
       
       # Part 2
       # Create two global variables to define if the column background is yellow or not.
+      # Add with_ratings to the sql query for title and release date links
      
       @all_ratings = Movie.all_ratings
       
