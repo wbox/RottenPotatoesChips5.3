@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
         @movie_title = 'hilite bg-warning'
         @movies = Movie.with_ratings(@ratings_to_show).order(:title)
       else
-        @hilite_bg = ''
+        @@movie_title = ''
       end
 
       if params[:release_date_title].present?
