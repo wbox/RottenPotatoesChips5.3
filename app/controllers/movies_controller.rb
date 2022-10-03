@@ -7,12 +7,33 @@ class MoviesController < ApplicationController
     end
   
     def index
+
+      # Part 1
       # If no rating present in the params, set @ratings_to_show with all
       # ratings available from the movies records in the database
 
       # If ratings present in the params, set @ratings_to_show with the
       # ratings present in the parameters only
       
+      # Part 2
+      # Create two global variables to define if the column background is yellow or not.
+      
+      p params
+      p params[:movie_title].present?
+      p params[:release_date_title].present?
+
+      if params[:movie_title].present?
+        @movie_title = 'hilite bg-warning'
+      else
+        @hilite_bg = ''
+      end
+
+      if params[:release_date_title].present?
+        @release_date_title = 'hilite bg-warning'
+      else
+        @release_date_title = ''
+      end
+
       @all_ratings = Movie.all_ratings
       
       if params[:ratings].present?
@@ -20,6 +41,8 @@ class MoviesController < ApplicationController
       else
         @ratings_to_show = Movie.all_ratings
       end
+
+      p "PARAMS >>>> #{params}"
 
       @movies = Movie.with_ratings(@ratings_to_show)
 
