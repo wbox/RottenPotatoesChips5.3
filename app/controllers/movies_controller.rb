@@ -22,18 +22,7 @@ class MoviesController < ApplicationController
       p params[:movie_title].present?
       p params[:release_date_title].present?
 
-      if params[:movie_title].present?
-        @movie_title = 'hilite bg-warning'
-      else
-        @hilite_bg = ''
-      end
-
-      if params[:release_date_title].present?
-        @release_date_title = 'hilite bg-warning'
-      else
-        @release_date_title = ''
-      end
-
+      
       @all_ratings = Movie.all_ratings
       
       if params[:ratings].present?
@@ -41,10 +30,26 @@ class MoviesController < ApplicationController
       else
         @ratings_to_show = Movie.all_ratings
       end
-
+      
       p "PARAMS >>>> #{params}"
+      
+      unless params[:movie_title].present? and params[:release_date_title].present? 
+        @movies = Movie.with_ratings(@ratings_to_show)
+      end
+      
+      if params[:movie_title].present?
+        @movie_title = 'hilite bg-warning'
+        @movies = Movie.order(:title)
+      else
+        @hilite_bg = ''
+      end
 
-      @movies = Movie.with_ratings(@ratings_to_show)
+      if params[:release_date_title].present?
+        @release_date_title = 'hilite bg-warning'
+        @movies = Movie.order(:release_date)
+      else
+        @release_date_title = ''
+      end
 
     end
   
