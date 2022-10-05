@@ -1,5 +1,5 @@
 .bundle
-./tmp
-./log
+./tmp/*
+./log/*
 tmp
 log

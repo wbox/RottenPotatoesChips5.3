@@ -36,7 +36,7 @@
           <%= movie.release_date %>
         </td>
         <td>
-          <%= link_to "More about #{movie.title}", movie_path(movie) %>
+          <%= link_to "More about #{movie.title}", movie_path(movie, ratings: @ratings_to_show) %>
         </td>
       </tr>
     <% end %>
