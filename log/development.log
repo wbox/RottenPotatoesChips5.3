@@ -1,0 +1,64 @@
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG-13%5D=1" for 127.0.0.1 at 2022-10-06 09:50:08 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG-13"=>"1"}}
+  [1m[35m (0.0ms)[0m  SELECT "movies"."rating" FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms)
+
+SyntaxError (/Users/sribas/dev/edx/5.3-CHIPS-RottenPotatoes/RottenPotatoesChips5.3/app/views/movies/index.html.erb:9: syntax error, unexpected ')'
+...ss: 'form-check-input' , id:  );@output_buffer.safe_append='
+...                              ^
+/Users/sribas/dev/edx/5.3-CHIPS-RottenPotatoes/RottenPotatoesChips5.3/app/views/movies/index.html.erb:11: syntax error, unexpected end, expecting ')'
+'.freeze;   end 
+            ^~~
+/Users/sribas/dev/edx/5.3-CHIPS-RottenPotatoes/RottenPotatoesChips5.3/app/views/movies/index.html.erb:13: syntax error, unexpected end, expecting ')'
+'.freeze; end 
+          ^~~
+/Users/sribas/dev/edx/5.3-CHIPS-RottenPotatoes/RottenPotatoesChips5.3/app/views/movies/index.html.erb:46: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/Users/sribas/dev/edx/5.3-CHIPS-RottenPotatoes/RottenPotatoesChips5.3/app/views/movies/index.html.erb:48: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  app/views/movies/index.html.erb:9: syntax error, unexpected ')'
+  app/views/movies/index.html.erb:11: syntax error, unexpected end, expecting ')'
+  app/views/movies/index.html.erb:13: syntax error, unexpected end, expecting ')'
+  app/views/movies/index.html.erb:46: syntax error, unexpected ensure, expecting ')'
+  app/views/movies/index.html.erb:48: syntax error, unexpected end, expecting ')'
+
+
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.8ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.4ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (9.3ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.1ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (8.3ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.1ms)
+  Rendered /opt/homebrew/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (16.8ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG-13%5D=1" for 127.0.0.1 at 2022-10-06 09:50:21 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG-13"=>"1"}}
+  [1m[36m (0.2ms)[0m  [1mSELECT "movies"."rating" FROM "movies"[0m
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG-13')
+  Rendered movies/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 155ms (Views: 152.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG-13%5D=1" for 127.0.0.1 at 2022-10-06 09:51:17 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG-13"=>"1"}}
+  [1m[36m (0.5ms)[0m  [1mSELECT "movies"."rating" FROM "movies"[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG-13')
+  Rendered movies/index.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 37ms (Views: 32.5ms | ActiveRecord: 0.7ms)
