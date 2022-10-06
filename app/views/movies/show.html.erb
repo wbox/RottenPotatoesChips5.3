@@ -17,7 +17,8 @@
   <%= @movie.description %>
 </p>
 
-<% ratings = session[:ratings] %>
+<% p "----------------" %>
+<% #session[:ratings] %>
 
 <div class="row">
   <%= link_to 'Edit', edit_movie_path(@movie), :class => 'btn btn-primary col-2' %>
