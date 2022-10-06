@@ -1,5 +1,6 @@
-.bundle
+!.bundle
 !./tmp/*
 !./log/*
 !tmp
 !log
+
