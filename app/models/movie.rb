@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
   has_many :reviews
-  has_many :moviegoers
+  # has_many :moviegoers
 
   def self.all_ratings
     Movie.pluck(:rating).uniq
